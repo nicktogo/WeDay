@@ -3,7 +3,7 @@
 
 #pragma once
 #include <QDialog>
-#include"email.h"
+#include"classtableemail.h"
 #include"table.h"
 #include"problem.h"
 #include"tutor.h"

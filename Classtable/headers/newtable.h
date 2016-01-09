@@ -6,7 +6,7 @@
 #include"table.h"
 #include"problem.h"
 #include"tutor.h"
-#include"email.h"
+#include"classtableemail.h"
 #include<QMap>
 #include"assist.h"
 namespace Ui {

@@ -6,7 +6,7 @@
 #include"table.h"
 #include"problem.h"
 #include"tutor.h"
-#include"email.h"
+#include"classtableemail.h"
 namespace Ui {
 class NewTutor;
 }

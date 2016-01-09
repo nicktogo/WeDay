@@ -6,7 +6,7 @@
 #include <QMouseEvent>
 #include <QList>
 #include"newtable.h"
-#include"email.h"
+#include"classtableemail.h"
 #include <QDialog>
 #include"table.h"
 #include"problem.h"

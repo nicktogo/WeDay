@@ -1,4 +1,4 @@
-#include "Classtable/headers/email.h"
+#include "Classtable/headers/classtableemail.h"
 #include<QString>
 Email::Email()
 {

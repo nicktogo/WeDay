@@ -3,6 +3,7 @@
 #include <Rss/headers/rssreader.h>
 #include <keep/headers/imageprocessor.h>
 #include <Classtable/headers/classtable.h>
+#include <Email/headers/loginwindow.h>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -34,5 +35,12 @@ void MainWindow::on_openClassTable_clicked()
 {
     Classtable *classTable = new Classtable;
     classTable->show();
+    //hide();
+}
+
+void MainWindow::on_openEmail_clicked()
+{
+    LoginWindow *loginWindow = new LoginWindow;
+    loginWindow->show();
     //hide();
 }

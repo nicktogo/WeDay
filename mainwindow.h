@@ -23,6 +23,8 @@ private slots:
 
     void on_openClassTable_clicked();
 
+    void on_openEmail_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

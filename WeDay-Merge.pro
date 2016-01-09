@@ -25,7 +25,6 @@ SOURCES += main.cpp\
     keep/sources/showwidget.cpp \
     Classtable/sources/assist.cpp \
     Classtable/sources/classtable.cpp \
-    Classtable/sources/email.cpp \
     Classtable/sources/mydialog.cpp \
     Classtable/sources/newclass.cpp \
     Classtable/sources/newpro.cpp \
@@ -33,7 +32,24 @@ SOURCES += main.cpp\
     Classtable/sources/newtutor.cpp \
     Classtable/sources/problem.cpp \
     Classtable/sources/table.cpp \
-    Classtable/sources/tutor.cpp
+    Classtable/sources/tutor.cpp \
+    Email/sources/attachment.cpp \
+    Email/sources/contentformat.cpp \
+    Email/sources/email.cpp \
+    Email/sources/emailinfo.cpp \
+    Email/sources/file.cpp \
+    Email/sources/html.cpp \
+    Email/sources/inlinefile.cpp \
+    Email/sources/loginwindow.cpp \
+    Email/sources/message.cpp \
+    Email/sources/multipart.cpp \
+    Email/sources/part.cpp \
+    Email/sources/pop3.cpp \
+    Email/sources/quotedprintable.cpp \
+    Email/sources/sendmail.cpp \
+    Email/sources/smtp.cpp \
+    Email/sources/text.cpp \
+    Classtable/sources/classtableemail.cpp
 
 HEADERS  += mainwindow.h \
     Rss/headers/channel.h \
@@ -48,7 +64,6 @@ HEADERS  += mainwindow.h \
     Classtable/headers/assist.h \
     Classtable/headers/classtable.h \
     Classtable/headers/connection.h \
-    Classtable/headers/email.h \
     Classtable/headers/mydialog.h \
     Classtable/headers/newclass.h \
     Classtable/headers/newpro.h \
@@ -56,7 +71,26 @@ HEADERS  += mainwindow.h \
     Classtable/headers/newtutor.h \
     Classtable/headers/problem.h \
     Classtable/headers/table.h \
-    Classtable/headers/tutor.h
+    Classtable/headers/tutor.h \
+    Email/headers/attachment.h \
+    Email/headers/contentformat.h \
+    Email/headers/email.h \
+    Email/headers/emailinfo.h \
+    Email/headers/file.h \
+    Email/headers/global.h \
+    Email/headers/html.h \
+    Email/headers/inlinefile.h \
+    Email/headers/loginwindow.h \
+    Email/headers/message.h \
+    Email/headers/mimesmtp.h \
+    Email/headers/multipart.h \
+    Email/headers/part.h \
+    Email/headers/pop3.h \
+    Email/headers/quotedprintable.h \
+    Email/headers/sendmail.h \
+    Email/headers/smtp.h \
+    Email/headers/text.h \
+    Classtable/headers/classtableemail.h
 
 FORMS    += mainwindow.ui \
     Rss/forms/rssreader.ui \
@@ -67,7 +101,10 @@ FORMS    += mainwindow.ui \
     Classtable/forms/newclass.ui \
     Classtable/forms/newpro.ui \
     Classtable/forms/newtable.ui \
-    Classtable/forms/newtutor.ui
+    Classtable/forms/newtutor.ui \
+    Email/forms/email.ui \
+    Email/forms/loginwindow.ui \
+    Email/forms/sendmail.ui
 
 QT     += webkitwidgets
 QT     += sql

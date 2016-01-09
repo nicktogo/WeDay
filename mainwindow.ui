@@ -53,6 +53,19 @@
      <string>Open ClassTable</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="openEmail">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>360</y>
+      <width>141</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>open Email</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
