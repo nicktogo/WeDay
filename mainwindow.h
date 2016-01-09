@@ -21,6 +21,8 @@ private slots:
 
     void on_openRss_clicked();
 
+    void on_openClassTable_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
