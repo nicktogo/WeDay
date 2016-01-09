@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/myImages">
+        <file>center.jpg</file>
+        <file>color.png</file>
+        <file>justify.jpg</file>
+        <file>new.png</file>
+        <file>open.jpg</file>
+        <file>out.png</file>
+        <file>right.jpg</file>
+        <file>underline.png</file>
+        <file>zoomin.png</file>
+        <file>zoomout.png</file>
+        <file>redo.png</file>
+        <file>rotate180.jpg</file>
+        <file>rotate270.jpg</file>
+        <file>undo.png</file>
+        <file>left.jpg</file>
+        <file>mirrorHorizontal.png</file>
+        <file>mirrorVertical.png</file>
+        <file>1.jpg</file>
+        <file>2.jpg</file>
+        <file>3.jpg</file>
+        <file>Bold.png</file>
+        <file>Italic.jpg</file>
+        <file>paint.jpg</file>
+        <file>Save.png</file>
+        <file>SaveAs.png</file>
+        <file>openpic.jpeg</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>images/icon_Qt.png</file>
+        <file>images/feed-icon-14x14.png</file>
+    </qresource>
+</RCC>
