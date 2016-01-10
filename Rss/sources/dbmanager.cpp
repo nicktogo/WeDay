@@ -28,7 +28,8 @@ void DbManager::createDatabase()
                              "link text, "
                              "description text, "
                              "copyright text, "
-                             "iconUrl text"
+                             "iconUrl text, "
+                             "rssLink text"
                              ");";
 
     QString CREATE_ITEM = "CREATE TABLE IF NOT EXISTS Item ("
@@ -70,6 +71,7 @@ int DbManager::insertChannel(const Channel& channel)
     query.bindValue(":description", channel.getDescription());
     query.bindValue(":copyright", channel.getCopyright());
     query.bindValue(":iconUrl", channel.getIconUrl());
+    query.bindValue(":rssLink", channel.getRssLink());
     if (query.exec())
     {
         qDebug() << "insertChannel finished";
@@ -205,13 +207,14 @@ Channel DbManager::createChannel(const QSqlQuery &query)
     channel.setDescription(query.value(3).toString());
     channel.setCopyright(query.value(4).toString());
     channel.setIconUrl(query.value(5).toString());
+    channel.setRssLink(query.value(6).toString());
     return channel;
 }
 
 QString DbManager::getInsertChannelSQL()
 {
-    return "INSERT INTO Channel (title, link, description, copyright, iconUrl) "
-           "VALUES (:title, :link, :description, :copyright, :iconUrl)";
+    return "INSERT INTO Channel (title, link, description, copyright, iconUrl, rssLink) "
+           "VALUES (:title, :link, :description, :copyright, :iconUrl, :rssLink)";
 }
 
 QString DbManager::getInsertItemSQL()

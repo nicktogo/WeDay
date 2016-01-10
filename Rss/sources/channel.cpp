@@ -64,3 +64,13 @@ void Channel::setIconUrl(const QString &value)
     iconUrl = value;
 }
 
+QString Channel::getRssLink() const
+{
+    return rssLink;
+}
+
+void Channel::setRssLink(const QString &value)
+{
+    rssLink = value;
+}
+

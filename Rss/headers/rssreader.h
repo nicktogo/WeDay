@@ -9,6 +9,7 @@
 #include <Rss/headers/dbmanager.h>
 #include <QStandardItemModel>
 #include <QList>
+#include <QIcon>
 
 namespace Ui {
 class RssReader;
@@ -29,11 +30,15 @@ private slots:
 
     void replyFinished(QNetworkReply*);
 
+    void on_actionRefresh_triggered();
+
 private:
     Ui::RssReader *ui;
     DbManager* dbManager;
     QXmlStreamReader reader;
     QStandardItemModel *itemModel;
+    QIcon *tabIcon;
+    QString rssLink;
     void getChannelsFromDB();
     void getItems(int channelId);
     int parseChannel();

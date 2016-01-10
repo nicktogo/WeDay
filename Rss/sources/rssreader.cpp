@@ -14,6 +14,7 @@
 #include <QWidget>
 #include <QImage>
 #include <QPixmap>
+#include <QImageReader>
 
 RssReader::RssReader(QWidget *parent) :
     QMainWindow(parent),
@@ -21,22 +22,10 @@ RssReader::RssReader(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    itemModel = new QStandardItemModel();
-    ui->rssList->setModel(itemModel);
-
     dbManager = DbManager::getDbmanager();
     dbManager->createDatabase();
 
     getChannelsFromDB();
-
-    if (ui->tab->findChild<QListView *>("rssList") == 0)
-    {
-        qDebug() << "cannot find rssList... go and find another way...";
-    }
-    else
-    {
-        qDebug() << "You find me~";
-    }
 
 }
 
@@ -82,6 +71,7 @@ void RssReader::get_rss_xml(QString url)
     QNetworkAccessManager* manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(replyFinished(QNetworkReply*)));
     manager->get(QNetworkRequest(QUrl(url)));
+    rssLink = url;
 }
 
 void RssReader::replyFinished(QNetworkReply *reply)
@@ -115,11 +105,22 @@ void RssReader::replyFinished(QNetworkReply *reply)
                 }
             }
         }
-        else if (contentType == "image/git")
+        else if (contentType == "image/gif")
         {
-//            QIcon *qIcon = (QIcon*)qObject;
-//            QImage img(reply->readAll());
-//            qIcon->addPixmap(QPixmap::fromImage(img));
+            tabIcon = new QIcon;
+            QImage img;
+            img.loadFromData(reply->readAll());
+            if (img.save("Icon.gif"))
+            {
+                qDebug() << "Saved";
+            }
+            else
+            {
+                qDebug() << "Failed";
+            }
+            tabIcon->addFile("Icon.gif");
+
+            ui->rssTab->currentWidget()->setWindowIcon(*tabIcon);
         }
     }
 }
@@ -185,6 +186,7 @@ int RssReader::parseChannel()
             }
             else if (name == "item")
             {
+                channel.setRssLink(rssLink);
                 channelId = dbManager->insertChannel(channel);
                 parseItem(channelId);
             }
@@ -271,7 +273,7 @@ void RssReader::getItems(int channelId)
     qWidget->setLayout(qvBoxLayout);
 
     Channel channel = dbManager->getChannelById(channelId);
-    QIcon *qIcon = new QIcon;
+    tabIcon = new QIcon;
     QString iconUrl = channel.getIconUrl();
     if (!iconUrl.isEmpty())
     {
@@ -281,9 +283,9 @@ void RssReader::getItems(int channelId)
     }
     else
     {
-        qIcon->addFile(":/icons/images/feed-icon-14x14.png");
+        tabIcon->addFile(":/icons/images/feed-icon-14x14.png");
     }
-    ui->rssTab->addTab(qWidget, *qIcon, channel.getTitle());
+    ui->rssTab->addTab(qWidget, *tabIcon, channel.getTitle());
 }
 
 void RssReader::getChannelsFromDB()
@@ -293,4 +295,10 @@ void RssReader::getChannelsFromDB()
     {
         getItems(channel.getId());
     }
+}
+
+void RssReader::on_actionRefresh_triggered()
+{
+    QWidget *currentWidget = ui->rssTab->currentWidget();
+    QListView *currentListView = currentWidget->findChild<QListView *>();
 }

@@ -26,6 +26,9 @@ public:
     QString getIconUrl() const;
     void setIconUrl(const QString &value);
 
+    QString getRssLink() const;
+    void setRssLink(const QString &value);
+
 private:
     int id;
     QString title;
@@ -33,6 +36,7 @@ private:
     QString description;
     QString copyright;
     QString iconUrl;
+    QString rssLink;
 };
 
 #endif // CHANNEL_H
